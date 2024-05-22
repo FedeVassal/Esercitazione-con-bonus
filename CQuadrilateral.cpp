@@ -15,6 +15,15 @@ Quadrilateral::Quadrilateral(Format sf) {
 
 	cout << "Quadrilateral - constructor - struct format" << endl;
 
+	if (sf.fill < k || sf.fill > b) {
+		WarningMessage("SetFill: fill should be blacK (k), White (w), Red (r), Green (g) or Blue (b)");
+		return;
+	}
+	if (sf.outline < k || sf.outline > b) {
+		WarningMessage("SetOutline: fill should be blacK (k), White (w), Red (r), Green (g) or Blue (b)");
+		return;
+	}
+
 	Init(sf);
 
 }
