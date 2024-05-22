@@ -234,19 +234,13 @@ void Rectangle::Dump() {
 /// @brief to draw a rectangle
 void Rectangle::Drawing() {
 	
-	cout << "Sto disegnando un rettangolo con le seguenti dimensioni: " << endl;
+	cout << "---Drawing---" << endl;
+	cout << "I am drawing a rectangle with the following characteristics: " << endl;
+	cout << "Width = " << width << endl;
+	cout << "Heigth = " << height << endl;
+	cout << "Outline color = " << shapef->outline << endl;
+	cout << "Fill color = " << shapef->fill << endl;
+	cout << "------------" << endl;
 
-	Rectangle::Dump();
-
-	cout << "Colore bordo: " << Quadrilateral::GetOutline() << endl;
-		cout << "Colore interno: " << shapef->fill << "(k = blacK, w = White, r = Red, g = Green, b = Blue)";
-
-		return;
-
+	return;
 }
-
-
-
-
-
-
