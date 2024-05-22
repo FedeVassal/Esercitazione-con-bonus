@@ -248,6 +248,16 @@ void Rhombus::Dump() {
 /// @brief to draw a rhombus
 void Rhombus::Drawing() {
 	
+
+	cout << "---Drawing---" << endl;
+	cout << "I am drawing a rhombus with the following characteristics: " << endl;
+	cout << "Longer diagonal = " << diagL << endl;
+	cout << "Shorter diagonal = " << diagS << endl;
+	cout << "Side = " << GetSide() << endl;
+	cout << "Outline color = " << shapef->outline << endl;
+	cout << "Fill color = " << shapef->fill << endl;
+	cout << "------------" << endl;
+
 }
 
 
