@@ -65,7 +65,7 @@ Rectangle::~Rectangle() {
 
 /// @brief copy constructor 
 /// @param o reference to the object that should be copied 
-Rectangle::Rectangle(const Rectangle &r) { 
+Rectangle::Rectangle(const Rectangle &r) :Quadrilateral(r) { 
 
 	cout << "Rectangle - copy constructor" << endl;
 
@@ -110,6 +110,7 @@ void Rectangle::Init(const Rectangle &r) {
 		
 	Init();
 	SetDim(r.width,r.height);
+	SetFormat(*r.shapef);
 	
 }
 
