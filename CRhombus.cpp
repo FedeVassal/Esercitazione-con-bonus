@@ -1,3 +1,4 @@
+
 /// \file CRhombus.cpp
 ///	\brief class Rhombus: implementation of the functions
 ///
@@ -32,7 +33,6 @@ Rhombus::Rhombus(float dL, float dS) {
 	}
 	else
 		SetDim(dL, dS);
-
 }
 
 /// @brief constructor 
@@ -65,7 +65,7 @@ Rhombus::~Rhombus() {
 
 /// @brief copy constructor 
 /// @param o reference to the object that should be copied 
-Rhombus::Rhombus(const Rhombus& r) {
+Rhombus::Rhombus(const Rhombus& r) :Quadrilateral(r) {
 
 	cout << "Rhombus - copy constructor" << endl;
 
@@ -110,6 +110,7 @@ void Rhombus::Init(const Rhombus& r) {
 
 	Init();
 	SetDim(r.diagL, r.diagS);
+	SetFormat(*r.shapef);
 
 }
 
