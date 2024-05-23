@@ -107,8 +107,8 @@ void AddShape()
 	}
 	else if (figureType == 1)
 	{
-		int h;
-		int w;
+		float h;
+		float w;
 		int outline;
 		int fill;
 		Format f;
@@ -133,8 +133,8 @@ void AddShape()
 	}
 	else if (figureType == 2)
 	{
-		int dL;
-		int dS;
+		float dL;
+		float dS;
 		int outline;
 		int fill;
 		Format f;
