@@ -238,8 +238,8 @@ void Rectangle::Drawing() {
 	cout << "I am drawing a rectangle with the following characteristics: " << endl;
 	cout << "Width = " << width << endl;
 	cout << "Heigth = " << height << endl;
-	cout << "Outline color = " << shapef->outline << endl;
-	cout << "Fill color = " << shapef->fill << endl;
+	cout << "Outline color = " << colorName(shapef->outline) << endl;
+	cout << "Fill color = " << colorName(shapef->fill) << endl;
 	cout << "------------" << endl;
 
 	return;
