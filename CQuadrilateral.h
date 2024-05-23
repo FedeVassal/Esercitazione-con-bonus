@@ -50,7 +50,8 @@ public:
 	void Init();
 	void Init(Format sf);
 	void Init(const Quadrilateral &o);							
-	void Reset();												
+	void Reset();				
+	const char* colorName(Color x);
 	/// @}
 
 			
