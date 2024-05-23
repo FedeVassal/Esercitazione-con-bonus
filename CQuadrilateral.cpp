@@ -35,7 +35,7 @@ Quadrilateral::Quadrilateral(Format sf) {
 Quadrilateral::Quadrilateral(const Quadrilateral& o) {
 
 	cout << "Quadrilateral - copy constructor" << endl;
-
+	shapef = new Format;
 	Init(o);
 }
 
@@ -88,7 +88,7 @@ bool Quadrilateral::operator==(const Quadrilateral& o) {
 void Quadrilateral::Init() {
 
 	SetSides(0., 0., 0., 0.);
-	
+
 	shapef->fill = k;
 	shapef->outline = k;
 
@@ -107,7 +107,7 @@ void Quadrilateral::Init(Format sf) {
 /// @param r reference to the object that should be copied 
 void Quadrilateral::Init(const Quadrilateral& o) {
 	Reset();
-	Init();
+	Init(*o.shapef);
 	sides[0] = o.sides[0];
 	sides[1] = o.sides[1];
 	sides[2] = o.sides[2];
