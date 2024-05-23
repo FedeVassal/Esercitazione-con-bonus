@@ -5,6 +5,7 @@ Quadrilateral::Quadrilateral() {
 
 	cout << "Quadrilateral - constructor - default" << endl;
 
+	shapef = new Format;
 	Init();
 
 }
@@ -24,6 +25,7 @@ Quadrilateral::Quadrilateral(Format sf) {
 		return;
 	}
 
+	shapef = new Format;
 	Init(sf);
 
 }
@@ -41,6 +43,7 @@ Quadrilateral::Quadrilateral(const Quadrilateral& o) {
 Quadrilateral::~Quadrilateral() {
 
 	cout << "Quadrilateral - destructor" << endl;
+	delete(shapef);
 	Reset();
 
 }
@@ -86,7 +89,6 @@ void Quadrilateral::Init() {
 
 	SetSides(0., 0., 0., 0.);
 	
-	shapef = new Format;
 	shapef->fill = k;
 	shapef->outline = k;
 
@@ -240,4 +242,21 @@ void Quadrilateral::Dump() {
 	cout << "------------------" << endl;
 	cout << endl;
 
+}
+
+
+const char* Quadrilateral::colorName(Color x)
+{
+	if (x == 0)
+		return "black";
+	else if (x == 1)
+		return "white";
+	else if (x == 2)
+		return "red";
+	else if (x == 3)
+		return "green";
+	else if (x == 4)
+		return "blue";
+	else
+		return "error";
 }
