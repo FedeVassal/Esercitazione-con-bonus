@@ -230,6 +230,7 @@ void Quadrilateral::Dump() {
 
 /// @brief for conversion from number to string of the oject's color
 /// @param the color that should be converted
+/// @return the string 
 const char* Quadrilateral::colorName(Color x)
 {
 	if (x == 0)
