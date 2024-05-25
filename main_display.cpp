@@ -1,5 +1,4 @@
-#include<iostream>
-
+#include <iostream>
 #include "CQuadrilateral.h"
 #include "CRectangle.h"
 #include "CRhombus.h"
@@ -87,7 +86,7 @@ void AddShape()
 	int i = 0;
 	int figureType;
 
-	while (ShapeList[i] != NULL)
+	while (ShapeList[i] != NULL && i < 49)
 	{
 		i++;
 
@@ -101,11 +100,14 @@ void AddShape()
 	cout << "Press 1 to insert a rectangle, 2 to insert a rhombus" << endl;
 	cin >> figureType;
 
-	if (figureType < 1 || figureType > 2)
+	while (figureType < 1 || figureType > 2)
 	{
-		cout << "Figure does not exist" << endl;
+		cout << "Figure does not exist." << endl;
+		cout << "Press 1 to insert a rectangle, 2 to insert a rhombus" << endl;
+		cin >> figureType;
 	}
-	else if (figureType == 1)
+
+	if (figureType == 1)
 	{
 		float h;
 		float w;
@@ -119,8 +121,21 @@ void AddShape()
 		cin >> w;
 		cout << "Enter the fill color of the rectangle, blacK = 0, White = 1, Red = 2, Green = 3, Blue = 4" << endl;
 		cin >> fill;
+		while (fill < 0 || fill > 4)
+		{
+			cout << "You entered a wrong number!" << endl;
+			cout << "Enter the fill color of the rectangle, blacK = 0, White = 1, Red = 2, Green = 3, Blue = 4" << endl;
+			cin >> fill;
+		}
+
 		cout << "Enter the outline color of the rectangle: blacK = 0, White = 1, Red = 2, Green = 3, Blue = 4" << endl;
 		cin >> outline;
+		while (outline < 0 || outline > 4)
+		{
+			cout << "You entered a wrong number!" << endl;
+			cout << "Enter the fill color of the rectangle, blacK = 0, White = 1, Red = 2, Green = 3, Blue = 4" << endl;
+			cin >> outline;
+		}
 
 		f.outline = ShapeColor(outline);
 		f.fill = ShapeColor(fill);
@@ -145,8 +160,21 @@ void AddShape()
 		cin >> dS;
 		cout << "Enter the fill color of the rhombus, blacK = 0, White = 1, Red = 2, Green = 3, Blue = 4" << endl;
 		cin >> fill;
+		while (fill < 0 || fill > 4)
+		{
+			cout << "You entered a wrong number!" << endl;
+			cout << "Enter the fill color of the rhombus, blacK = 0, White = 1, Red = 2, Green = 3, Blue = 4" << endl;
+			cin >> fill;
+		}
+		
 		cout << "Enter the outline color of the rhombus: blacK = 0, White = 1, Red = 2, Green = 3, Blue = 4" << endl;
 		cin >> outline;
+		while (outline < 0 || outline > 4)
+		{
+			cout << "You entered a wrong number!" << endl;
+			cout << "Enter the fill color of the rhombus, blacK = 0, White = 1, Red = 2, Green = 3, Blue = 4" << endl;
+			cin >> outline;
+		}
 
 		f.outline = ShapeColor(outline);
 		f.fill = ShapeColor(fill);
@@ -161,11 +189,7 @@ void AddShape()
 
 Color ShapeColor(int n)
 {
-	if (n < 0 || n > 4)
-	{
-		cout << "You have entered an invalid color" << endl;
-	}
-	else if (n == 0)
+	if (n == 0)
 		return k;
 	else if (n == 1)
 		return w;
@@ -182,11 +206,17 @@ void RemoveShape()
 	int i;
 	cout << "Select the number of the shape to delete:" << endl;
 	cin >> i;
+	if (ShapeList[i] == NULL || i >= 50)
+	{
+		cout << "The number you entered doesn't exist" << endl;
+	}
+	else
+	{
+		delete ShapeList[i];
+		ShapeList[i] = NULL;
 
-	delete ShapeList[i];
-	ShapeList[i] = NULL;
-
-	cout << "Shape " << i << " successfully deleted" << endl;
+		cout << "Shape " << i << " successfully deleted" << endl;
+	}
 }
 
 void RemoveAll()
