@@ -15,7 +15,6 @@ Rhombus::Rhombus() {
 	cout << "Rhombus - constructor - default" << endl;
 
 	Init();
-
 }
 
 /// @brief constructor 
@@ -51,8 +50,6 @@ Rhombus::Rhombus(float dL, float dS, Format sf) :Quadrilateral(sf) {
 	}
 	else
 		SetDim(dL, dS);
-
-
 }
 
 /// @brief destructor 
@@ -60,7 +57,6 @@ Rhombus::~Rhombus() {
 
 	cout << "Rhombus - destructor" << endl;
 	Reset();
-
 }
 
 /// @brief copy constructor 
@@ -70,7 +66,6 @@ Rhombus::Rhombus(const Rhombus& r) :Quadrilateral(r) {
 	cout << "Rhombus - copy constructor" << endl;
 
 	Init(r);
-
 }
 
 /// @brief overload of operator = 
@@ -83,7 +78,6 @@ Rhombus& Rhombus::operator=(const Rhombus& r) {
 	Init(r);
 
 	return *this;
-
 }
 
 /// @brief overload of operator == 
@@ -100,7 +94,6 @@ bool Rhombus::operator==(const Rhombus& r) {
 /// @brief default initialization of the object
 void Rhombus::Init() {
 	SetDim(0, 0);
-
 }
 
 
@@ -111,14 +104,12 @@ void Rhombus::Init(const Rhombus& r) {
 	Init();
 	SetDim(r.diagL, r.diagS);
 	SetFormat(*r.shapef);
-
 }
 
 /// @brief total reset of the object  
 void Rhombus::Reset() {
 
 	SetDim(0, 0);
-
 }
 
 
@@ -132,7 +123,6 @@ void Rhombus::SetDiagL(float d) {
 	}
 
 	SetDim(d, diagS);
-
 }
 
 /// @brief set shorter diagonal of the object
@@ -145,7 +135,6 @@ void Rhombus::SetDiagS(float d) {
 	}
 
 	SetDim(diagL, d);
-
 }
 
 
@@ -154,7 +143,6 @@ void Rhombus::SetDiagS(float d) {
 float Rhombus::GetDiagL() {
 
 	return diagL;
-
 }
 
 /// @brief get shorter diagonal of the object
@@ -162,7 +150,6 @@ float Rhombus::GetDiagL() {
 float Rhombus::GetDiagS() {
 
 	return diagS;
-
 }
 
 /// @brief get side of the object
@@ -170,7 +157,6 @@ float Rhombus::GetDiagS() {
 float Rhombus::GetSide() {
 
 	return sqrt(diagL * diagL / 4. + diagS * diagS / 4.);
-
 }
 
 
@@ -216,7 +202,6 @@ void Rhombus::ErrorMessage(const char* string) {
 
 	cout << endl << "ERROR -- Rhombus --";
 	cout << string << endl;
-
 }
 
 /// @brief write a warning message 
@@ -225,7 +210,6 @@ void Rhombus::WarningMessage(const char* string) {
 
 	cout << endl << "WARNING -- Rhombus --";
 	cout << string << endl;
-
 }
 
 
@@ -242,7 +226,6 @@ void Rhombus::Dump() {
 	Quadrilateral::Dump();
 
 	cout << endl;
-
 }
 
 
@@ -258,5 +241,4 @@ void Rhombus::Drawing() {
 	cout << "Outline color = " << colorName(shapef->outline) << endl;
 	cout << "Fill color = " << colorName(shapef->fill) << endl;
 	cout << "------------" << endl;
-
 }
