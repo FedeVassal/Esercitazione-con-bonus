@@ -13,7 +13,6 @@ Rectangle::Rectangle() {
 	cout << "Rectangle - constructor - default" << endl;
 
 	Init();
-
 }
 
 /// @brief constructor 
@@ -31,7 +30,6 @@ Rectangle::Rectangle(float w, float h) {
 	}
 	else
 		SetDim(w,h);
-
 }
 
 /// @brief constructor 
@@ -50,9 +48,6 @@ Rectangle::Rectangle(float w, float h, Format sf):Quadrilateral(sf) {
 	}
 	else
 		SetDim(w, h);
-
-	
-
 }
 
 /// @brief destructor 
@@ -60,7 +55,6 @@ Rectangle::~Rectangle() {
 
 	cout << "Rectangle - destructor" << endl;
 	Reset();
-
 }
 
 /// @brief copy constructor 
@@ -70,7 +64,6 @@ Rectangle::Rectangle(const Rectangle &r) :Quadrilateral(r) {
 	cout << "Rectangle - copy constructor" << endl;
 
 	Init(r);
-	
 }
 
 /// @brief overload of operator = 
@@ -83,7 +76,6 @@ Rectangle& Rectangle::operator=(const Rectangle &r) {
 	Init(r);
 	
 	return *this;
-	
 }
 
 /// @brief overload of operator == 
@@ -100,7 +92,6 @@ bool Rectangle::operator==(const Rectangle &r) {
 /// @brief default initialization of the object
 void Rectangle::Init() {
 	SetDim(0,0);
-	
 }
 
 
@@ -111,14 +102,12 @@ void Rectangle::Init(const Rectangle &r) {
 	Init();
 	SetDim(r.width,r.height);
 	SetFormat(*r.shapef);
-	
 }
 
 /// @brief total reset of the object  
 void Rectangle::Reset() {
 	
 	SetDim(0,0);
-	
 }
 
 
@@ -132,7 +121,6 @@ void Rectangle::SetWidth(float w) {
 	}
 
 	SetDim(w,height);
-
 }
 
 /// @brief set length of the object
@@ -145,7 +133,6 @@ void Rectangle::SetHeight(float h) {
 	}
 
 	SetDim(width,h);
-
 }
 
 
@@ -155,7 +142,6 @@ void Rectangle::SetHeight(float h) {
 float Rectangle::GetWidth() {
 
 	return width;
-
 }
 
 /// @brief get length of the object
@@ -202,7 +188,6 @@ void Rectangle::ErrorMessage(const char *string) {
 	
 	cout << endl << "ERROR -- Rectangle --";
 	cout << string << endl;
-
 }
 
 
@@ -212,7 +197,6 @@ void Rectangle::WarningMessage(const char *string) {
 	
 	cout << endl << "WARNING -- Rectangle --";
 	cout << string << endl;
-
 }
 
 
@@ -229,7 +213,6 @@ void Rectangle::Dump() {
 	Quadrilateral::Dump();
 	
 	cout << endl;
-
 }
 
 /// @brief to draw a rectangle
