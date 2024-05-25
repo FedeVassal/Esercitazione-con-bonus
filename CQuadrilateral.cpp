@@ -7,7 +7,6 @@ Quadrilateral::Quadrilateral() {
 
 	shapef = new Format;
 	Init();
-
 }
 
 /// @brief constructor 
@@ -27,7 +26,6 @@ Quadrilateral::Quadrilateral(Format sf) {
 
 	shapef = new Format;
 	Init(sf);
-
 }
 
 /// @brief copy constructor 
@@ -44,8 +42,8 @@ Quadrilateral::~Quadrilateral() {
 
 	cout << "Quadrilateral - destructor" << endl;
 	delete(shapef);
-	Reset();
 
+	Reset();
 }
 
 
@@ -62,7 +60,6 @@ void Quadrilateral::SetSides(float s1, float s2, float s3, float s4) {
 	sides[3] = s4;
 
 	return;
-
 }
 
 /// @brief overload of operator = 
@@ -72,7 +69,6 @@ Quadrilateral& Quadrilateral::operator=(const Quadrilateral& o) {
 
 	Init(o);
 	return *this;
-
 }
 
 /// @brief overload of operator == 
@@ -91,7 +87,6 @@ void Quadrilateral::Init() {
 
 	shapef->fill = k;
 	shapef->outline = k;
-
 }
 
 /// @brief default initialization of the format
@@ -100,7 +95,6 @@ void Quadrilateral::Init(Format sf) {
 	Init();
 	shapef->fill = sf.fill;
 	shapef->outline = sf.outline;
-
 }
 
 /// @brief initialization of the object as a copy of an object 
@@ -112,14 +106,12 @@ void Quadrilateral::Init(const Quadrilateral& o) {
 	sides[1] = o.sides[1];
 	sides[2] = o.sides[2];
 	sides[3] = o.sides[3];
-
 }
 
 /// @brief total reset of the object  
 void Quadrilateral::Reset() {
 
 	sides[0] = sides[1] = sides[2] = sides[3] = 0.;
-
 }
 
 /// @brief get the area of the object
@@ -127,7 +119,6 @@ void Quadrilateral::Reset() {
 float Quadrilateral::GetArea() {
 
 	return Area();
-
 }
 
 /// @brief get the perimeter of the object
@@ -135,7 +126,6 @@ float Quadrilateral::GetArea() {
 float Quadrilateral::GetPerimeter() {
 
 	return (sides[0] + sides[1] + sides[2] + sides[3]);
-
 }
 
 /// @brief get the sides of the object 
@@ -149,7 +139,6 @@ void Quadrilateral::GetSides(float& s0, float& s1, float& s2, float& s3) {
 	s1 = sides[1];
 	s2 = sides[2];
 	s3 = sides[3];
-
 }
 
 /// @brief get the format of the object 
@@ -174,7 +163,6 @@ Color Quadrilateral::GetOutline() {
 	return shapef->outline;
 }
 
-
 /// @brief set the format of the object 
 /// @param sf a struct of type Format filled with the format fields
 void Quadrilateral::SetFormat(Format sf) {
@@ -195,6 +183,7 @@ void Quadrilateral::SetFill(Color fill) {
 	shapef->fill = fill;
 	return;
 }
+
 /// @brief set the outline color of the object 
 /// @param outline outline color 
 void Quadrilateral::SetOutline(Color outline) {
@@ -208,15 +197,12 @@ void Quadrilateral::SetOutline(Color outline) {
 	return;
 }
 
-
-
 /// @brief write an error message 
 /// @param string message to be printed
 void Quadrilateral::ErrorMessage(const char* string) {
 
 	cout << endl << "ERROR -- Quadrilateral --";
 	cout << string << endl;
-
 }
 
 /// @brief write a warning message 
@@ -225,7 +211,6 @@ void Quadrilateral::WarningMessage(const char* string) {
 
 	cout << endl << "WARNING -- Quadrilateral --";
 	cout << string << endl;
-
 }
 
 
@@ -241,10 +226,10 @@ void Quadrilateral::Dump() {
 	cout << "Area = " << GetArea() << endl;
 	cout << "------------------" << endl;
 	cout << endl;
-
 }
 
-
+/// @brief for conversion from number to string of the oject's color
+/// @param the color that should be converted
 const char* Quadrilateral::colorName(Color x)
 {
 	if (x == 0)
