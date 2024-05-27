@@ -1,4 +1,3 @@
-
 /// \file CRhombus.cpp
 ///	\brief class Rhombus: implementation of the functions
 ///
@@ -15,6 +14,7 @@ Rhombus::Rhombus() {
 	cout << "Rhombus - constructor - default" << endl;
 
 	Init();
+
 }
 
 /// @brief constructor 
@@ -27,7 +27,7 @@ Rhombus::Rhombus(float dL, float dS) {
 	cout << "Rhombus - constructor" << endl;
 
 	if (dL <= 0. || dS <= 0.) {
-		WarningMessage("constructor: diagonals should be > 0");
+		WarningMessage("Constructor: diagonals should be > 0");
 		SetDim(0, 0);
 	}
 	else
@@ -45,11 +45,13 @@ Rhombus::Rhombus(float dL, float dS, Format sf) :Quadrilateral(sf) {
 	cout << "Rhombus - constructor" << endl;
 
 	if (dL <= 0. || dS <= 0.) {
-		WarningMessage("constructor: diagonals should be > 0");
+		WarningMessage("Constructor: diagonals should be > 0");
 		SetDim(0, 0);
 	}
 	else
 		SetDim(dL, dS);
+
+
 }
 
 /// @brief destructor 
@@ -57,6 +59,7 @@ Rhombus::~Rhombus() {
 
 	cout << "Rhombus - destructor" << endl;
 	Reset();
+
 }
 
 /// @brief copy constructor 
@@ -66,10 +69,11 @@ Rhombus::Rhombus(const Rhombus& r) :Quadrilateral(r) {
 	cout << "Rhombus - copy constructor" << endl;
 
 	Init(r);
+
 }
 
 /// @brief overload of operator = 
-/// @param o reference to the object on the right side of the operator 
+/// @param r reference to the object on the right side of the operator 
 /// @return reference to the object on the left side of the operator 
 Rhombus& Rhombus::operator=(const Rhombus& r) {
 
@@ -78,6 +82,7 @@ Rhombus& Rhombus::operator=(const Rhombus& r) {
 	Init(r);
 
 	return *this;
+
 }
 
 /// @brief overload of operator == 
@@ -94,6 +99,7 @@ bool Rhombus::operator==(const Rhombus& r) {
 /// @brief default initialization of the object
 void Rhombus::Init() {
 	SetDim(0, 0);
+
 }
 
 
@@ -104,12 +110,14 @@ void Rhombus::Init(const Rhombus& r) {
 	Init();
 	SetDim(r.diagL, r.diagS);
 	SetFormat(*r.shapef);
+
 }
 
 /// @brief total reset of the object  
 void Rhombus::Reset() {
 
 	SetDim(0, 0);
+
 }
 
 
@@ -123,6 +131,7 @@ void Rhombus::SetDiagL(float d) {
 	}
 
 	SetDim(d, diagS);
+
 }
 
 /// @brief set shorter diagonal of the object
@@ -135,6 +144,7 @@ void Rhombus::SetDiagS(float d) {
 	}
 
 	SetDim(diagL, d);
+
 }
 
 
@@ -143,6 +153,7 @@ void Rhombus::SetDiagS(float d) {
 float Rhombus::GetDiagL() {
 
 	return diagL;
+
 }
 
 /// @brief get shorter diagonal of the object
@@ -150,6 +161,7 @@ float Rhombus::GetDiagL() {
 float Rhombus::GetDiagS() {
 
 	return diagS;
+
 }
 
 /// @brief get side of the object
@@ -157,6 +169,7 @@ float Rhombus::GetDiagS() {
 float Rhombus::GetSide() {
 
 	return sqrt(diagL * diagL / 4. + diagS * diagS / 4.);
+
 }
 
 
@@ -202,6 +215,7 @@ void Rhombus::ErrorMessage(const char* string) {
 
 	cout << endl << "ERROR -- Rhombus --";
 	cout << string << endl;
+
 }
 
 /// @brief write a warning message 
@@ -210,6 +224,7 @@ void Rhombus::WarningMessage(const char* string) {
 
 	cout << endl << "WARNING -- Rhombus --";
 	cout << string << endl;
+
 }
 
 
@@ -226,19 +241,21 @@ void Rhombus::Dump() {
 	Quadrilateral::Dump();
 
 	cout << endl;
+
 }
 
 
-/// @brief to draw a rhombus
+/// @brief istructions to draw a rhombus
 void Rhombus::Drawing() {
 
 
-	cout << "---Drawing---" << endl;
-	cout << "I am drawing a rhombus with the following characteristics: " << endl;
+	cout << "--- Drawing istructions ---" << endl;
+	cout << "Features of the rhombus to draw: " << endl;
 	cout << "Longer diagonal = " << diagL << endl;
 	cout << "Shorter diagonal = " << diagS << endl;
 	cout << "Side = " << GetSide() << endl;
 	cout << "Outline color = " << colorName(shapef->outline) << endl;
 	cout << "Fill color = " << colorName(shapef->fill) << endl;
-	cout << "------------" << endl;
+	cout << "------------------------------------------" << endl << endl;
+
 }
