@@ -13,6 +13,7 @@ Rectangle::Rectangle() {
 	cout << "Rectangle - constructor - default" << endl;
 
 	Init();
+
 }
 
 /// @brief constructor 
@@ -25,11 +26,12 @@ Rectangle::Rectangle(float w, float h) {
 	cout << "Rectangle - constructor" << endl;
 
 	if (w <= 0. || h <= 0.) {
-		WarningMessage("constructor: width and height should be > 0"); 
+		WarningMessage("Constructor: width and height should be > 0"); 
 		SetDim(0,0);
 	}
 	else
 		SetDim(w,h);
+
 }
 
 /// @brief constructor 
@@ -43,11 +45,14 @@ Rectangle::Rectangle(float w, float h, Format sf):Quadrilateral(sf) {
 	cout << "Rectangle - constructor" << endl;
 
 	if (w <= 0. || h <= 0.) {
-		WarningMessage("constructor: width and height should be > 0");
+		WarningMessage("Constructor: width and height should be > 0");
 		SetDim(0, 0);
 	}
 	else
 		SetDim(w, h);
+
+	
+
 }
 
 /// @brief destructor 
@@ -55,19 +60,21 @@ Rectangle::~Rectangle() {
 
 	cout << "Rectangle - destructor" << endl;
 	Reset();
+
 }
 
 /// @brief copy constructor 
-/// @param o reference to the object that should be copied 
+/// @param r reference to the object that should be copied 
 Rectangle::Rectangle(const Rectangle &r) :Quadrilateral(r) { 
 
 	cout << "Rectangle - copy constructor" << endl;
 
 	Init(r);
+	
 }
 
 /// @brief overload of operator = 
-/// @param o reference to the object on the right side of the operator 
+/// @param r reference to the object on the right side of the operator 
 /// @return reference to the object on the left side of the operator 
 Rectangle& Rectangle::operator=(const Rectangle &r) { 
 
@@ -76,6 +83,7 @@ Rectangle& Rectangle::operator=(const Rectangle &r) {
 	Init(r);
 	
 	return *this;
+	
 }
 
 /// @brief overload of operator == 
@@ -92,6 +100,7 @@ bool Rectangle::operator==(const Rectangle &r) {
 /// @brief default initialization of the object
 void Rectangle::Init() {
 	SetDim(0,0);
+	
 }
 
 
@@ -102,12 +111,14 @@ void Rectangle::Init(const Rectangle &r) {
 	Init();
 	SetDim(r.width,r.height);
 	SetFormat(*r.shapef);
+	
 }
 
 /// @brief total reset of the object  
 void Rectangle::Reset() {
 	
 	SetDim(0,0);
+	
 }
 
 
@@ -121,6 +132,7 @@ void Rectangle::SetWidth(float w) {
 	}
 
 	SetDim(w,height);
+
 }
 
 /// @brief set length of the object
@@ -133,6 +145,7 @@ void Rectangle::SetHeight(float h) {
 	}
 
 	SetDim(width,h);
+
 }
 
 
@@ -142,6 +155,7 @@ void Rectangle::SetHeight(float h) {
 float Rectangle::GetWidth() {
 
 	return width;
+
 }
 
 /// @brief get length of the object
@@ -188,6 +202,7 @@ void Rectangle::ErrorMessage(const char *string) {
 	
 	cout << endl << "ERROR -- Rectangle --";
 	cout << string << endl;
+
 }
 
 
@@ -197,15 +212,14 @@ void Rectangle::WarningMessage(const char *string) {
 	
 	cout << endl << "WARNING -- Rectangle --";
 	cout << string << endl;
+
 }
 
 
 /// @brief for debugging: all about the object
 void Rectangle::Dump() {
 	cout << endl;
-	cout << "---Rectangle---" << endl; 
-	cout << endl;
-	
+	cout << "--- Rectangle ---" << endl << endl;
 	cout << "Width = " << width << endl;
 	cout << "Heigth = " << height << endl;
 	cout << "------------" << endl;
@@ -213,18 +227,19 @@ void Rectangle::Dump() {
 	Quadrilateral::Dump();
 	
 	cout << endl;
+
 }
 
-/// @brief to draw a rectangle
+/// @brief istructions to draw a rectangle
 void Rectangle::Drawing() {
 	
-	cout << "---Drawing---" << endl;
-	cout << "I am drawing a rectangle with the following characteristics: " << endl;
+	cout << "--- Drawing istructions ---" << endl;
+	cout << "Features of the rectangle to draw: " << endl;
 	cout << "Width = " << width << endl;
 	cout << "Heigth = " << height << endl;
 	cout << "Outline color = " << colorName(shapef->outline) << endl;
 	cout << "Fill color = " << colorName(shapef->fill) << endl;
-	cout << "------------" << endl;
+	cout << "------------------------------------------" << endl << endl;
 
 	return;
 }
