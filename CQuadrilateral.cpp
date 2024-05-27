@@ -1,3 +1,9 @@
+/// \file CQuadrilateral.cpp
+///	\brief class Quadrilateral: implementation of the functions
+///
+///	Details.
+///
+
 #include "CQuadrilateral.h"
 
 /// @brief default constructor 
@@ -15,7 +21,7 @@ Quadrilateral::Quadrilateral(Format sf) {
 
 	cout << "Quadrilateral - constructor - struct format" << endl;
 
-	if (sf.fill < k || sf.fill > b) {
+	if (sf.fill < k || sf.fill > b) { //
 		WarningMessage("SetFill: fill should be blacK (k), White (w), Red (r), Green (g) or Blue (b)");
 		return;
 	}
@@ -98,7 +104,7 @@ void Quadrilateral::Init(Format sf) {
 }
 
 /// @brief initialization of the object as a copy of an object 
-/// @param r reference to the object that should be copied 
+/// @param o reference to the object that should be copied 
 void Quadrilateral::Init(const Quadrilateral& o) {
 	Reset();
 	Init(*o.shapef);
@@ -218,9 +224,7 @@ void Quadrilateral::WarningMessage(const char* string) {
 void Quadrilateral::Dump() {
 
 	cout << endl;
-	cout << "---Quadrilateral---" << endl;
-	cout << endl;
-
+	cout << "--- Quadrilateral ---" << endl << endl;
 	cout << "Sides = " << sides[0] << "; " << sides[1] << "; " << sides[2] << "; " << sides[3] << "; " << endl;
 	cout << "Perimeter = " << GetPerimeter() << endl;
 	cout << "Area = " << GetArea() << endl;
@@ -228,9 +232,8 @@ void Quadrilateral::Dump() {
 	cout << endl;
 }
 
-/// @brief for conversion from number to string of the oject's color
+/// @brief for conversion from number to string of the object's color
 /// @param the color that should be converted
-/// @return the string 
 const char* Quadrilateral::colorName(Color x)
 {
 	if (x == 0)
